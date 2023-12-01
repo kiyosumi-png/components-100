@@ -1,0 +1,46 @@
+.root {
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.secondary {
+  background-color: #f8f9fa;
+  color: #5a6268;
+  border: 1px solid #dae0e5;
+
+  &:hover {
+    background-color: #e2e6ea;
+  }
+}
+
+.small {
+  font-size: small;
+  padding: 12px;
+}
+
+.medium {
+  font-size: medium;
+  padding: 16px;
+}
+
+.large {
+  font-size: large;
+  padding: 20px;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
