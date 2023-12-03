@@ -2,4 +2,11 @@
 to: src/app/_components/<%= name %>/<%= name %>.tsx
 ---
 
-console.log("<%= name %>")
+import clsx from "clsx";
+import s from "./styles.module.scss";
+
+type Props = {};
+
+export const <%= name %> = ({}: Props) => {
+  return <div><%= name %> component</div>;
+};
