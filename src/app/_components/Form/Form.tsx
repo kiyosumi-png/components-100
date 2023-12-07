@@ -3,12 +3,17 @@ import { Button } from "../Button/Button";
 
 type Props = {};
 
+// function validateName(name: string) {
+//   const regex = ;
+//   return regex.test(name);
+// }
+
 export const Form = ({}: Props) => {
   return (
     <form className={s.root}>
       <div className={s.content}>
         <label>First name</label>
-        <input />
+        <input pattern="/^[\p{L}]{1,50}$/u} /" />
       </div>
       <div className={s.content}>
         <label>Last name</label>
