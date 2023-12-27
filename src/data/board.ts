@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 export type TList = { id: string; name: string };
 
 export type TCard = { id: string; name: string };

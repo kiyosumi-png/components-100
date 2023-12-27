@@ -1,13 +1,13 @@
 "use client";
 
 import { TBoard, TCard, boardData } from "@/data/board";
-import React, { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { ReactSortable } from "react-sortablejs";
 import { v4 as uuidv4 } from "uuid";
 
 type AddCardFormProps = {
   listKey: string;
-  setBoard: React.Dispatch<React.SetStateAction<TBoard>>;
+  setBoard: Dispatch<SetStateAction<TBoard>>;
 };
 
 const AddCardForm = ({ listKey, setBoard }: AddCardFormProps) => {
