@@ -1,13 +1,12 @@
 "use client";
 
-import { AddCardForm } from "@/components/AddCardForm/AddCardForm";
 import { AddListForm } from "@/components/AddListForm/AddListForm";
+import { List } from "@/components/List/List";
 import { TBoard, TCard, boardData } from "@/data/board";
 import { useState } from "react";
-import { ReactSortable } from "react-sortablejs";
 import { v4 as uuidv4 } from "uuid";
 
-function Board() {
+const Board = () => {
   const [board, setBoard] = useState<TBoard>(boardData);
 
   const updateList = (key: string, newItems: TCard[]) => {
@@ -38,25 +37,20 @@ function Board() {
 
   return (
     <div style={{ display: "flex", gap: "10px" }}>
-      {Object.entries(board).map(([listKey, item]) => (
-        <div key={listKey}>
-          <p>{item.list.name}</p>
-          <ReactSortable
-            list={item.cards}
-            setList={(newItems) => updateList(listKey, newItems)}
-            group="shared"
-          >
-            {item.cards.map((card) => (
-              <li key={card.id}>{card.name}</li>
-            ))}
-          </ReactSortable>
-          <AddCardForm listKey={listKey} setNewCard={handleSetNewCard} />
-        </div>
+      {Object.entries(board).map(([listKey, { list, cards }]) => (
+        <List
+          key={listKey}
+          id={list.id}
+          name={list.name}
+          cards={cards}
+          handleSetNewCard={handleSetNewCard}
+          updateList={updateList}
+        />
       ))}
       <AddListForm setNewList={handleSetNewList} />
     </div>
   );
-}
+};
 
 function App() {
   return <Board />;
