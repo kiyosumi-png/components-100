@@ -1,5 +1,5 @@
 ---
-to: src/app/_components/<%= name %>/<%= name %>.tsx
+to: src/components/<%= name %>/<%= name %>.tsx
 ---
 
 import clsx from "clsx";

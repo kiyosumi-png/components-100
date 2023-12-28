@@ -1,65 +1,10 @@
 "use client";
 
+import { AddCardForm } from "@/components/AddCardForm/AddCardForm";
 import { TBoard, TCard, boardData } from "@/data/board";
 import { useState, Dispatch, SetStateAction } from "react";
 import { ReactSortable } from "react-sortablejs";
 import { v4 as uuidv4 } from "uuid";
-
-type AddCardFormProps = {
-  listKey: string;
-  setBoard: Dispatch<SetStateAction<TBoard>>;
-};
-
-const AddCardForm = ({ listKey, setBoard }: AddCardFormProps) => {
-  const [isShow, setIsShow] = useState(false);
-  const [cardName, setCardName] = useState("");
-
-  const showForm = () => {
-    setIsShow(true);
-  };
-
-  const addNewCard = () => {
-    if (!cardName) {
-      setIsShow(false);
-      return;
-    }
-
-    setBoard((prevBoard) => ({
-      ...prevBoard,
-      [listKey]: {
-        ...prevBoard[listKey],
-        cards: [...prevBoard[listKey].cards, { id: uuidv4(), name: cardName }],
-      },
-    }));
-
-    setCardName("");
-    setIsShow(false);
-  };
-
-  const cancel = () => {
-    setIsShow(false);
-  };
-
-  return (
-    <div>
-      {isShow ? (
-        <div>
-          <input
-            placeholder="カードのタイトルを入力..."
-            value={cardName}
-            onChange={(e) => setCardName(e.currentTarget.value)}
-          />
-          <div>
-            <button onClick={addNewCard}>カードを追加</button>
-            <button onClick={cancel}>×</button>
-          </div>
-        </div>
-      ) : (
-        <button onClick={showForm}>+ カードを追加</button>
-      )}
-    </div>
-  );
-};
 
 type AddListFormProps = {
   setBoard: React.Dispatch<React.SetStateAction<TBoard>>;
@@ -125,21 +70,31 @@ function Board() {
     }));
   };
 
+  const handleSetNewCard = (cardName: string, listKey: string) => {
+    setBoard((prevBoard) => ({
+      ...prevBoard,
+      [listKey]: {
+        ...prevBoard[listKey],
+        cards: [...prevBoard[listKey].cards, { id: uuidv4(), name: cardName }],
+      },
+    }));
+  };
+
   return (
     <div style={{ display: "flex", gap: "10px" }}>
-      {Object.entries(board).map(([key, item]) => (
-        <div key={key}>
+      {Object.entries(board).map(([listKey, item]) => (
+        <div key={listKey}>
           <p>{item.list.name}</p>
           <ReactSortable
             list={item.cards}
-            setList={(newItems) => updateList(key, newItems)}
+            setList={(newItems) => updateList(listKey, newItems)}
             group="shared"
           >
             {item.cards.map((card) => (
               <li key={card.id}>{card.name}</li>
             ))}
           </ReactSortable>
-          <AddCardForm listKey={key} setBoard={setBoard} />
+          <AddCardForm listKey={listKey} setNewCard={handleSetNewCard} />
         </div>
       ))}
       <AddListForm setBoard={setBoard} />

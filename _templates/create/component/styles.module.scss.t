@@ -1,3 +1,3 @@
 ---
-to: src/app/_components/<%= name %>/styles.module.scss
+to: src/components/<%= name %>/styles.module.scss
 ---

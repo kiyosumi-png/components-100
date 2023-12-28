@@ -1,5 +1,5 @@
 ---
-to: src/app/_components/<%= name %>/<%= name %>.stories.tsx
+to: src/components/<%= name %>/<%= name %>.stories.tsx
 ---
 
 import type { Meta, StoryObj } from "@storybook/react";
