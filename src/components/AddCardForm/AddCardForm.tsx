@@ -5,9 +5,10 @@ import { useState } from "react";
 type Props = {
   listKey: string;
   setNewCard: (cardName: string, listKey: string) => void;
+  className?: string;
 };
 
-export const AddCardForm = ({ listKey, setNewCard }: Props) => {
+export const AddCardForm = ({ listKey, setNewCard, className }: Props) => {
   const [isShow, setIsShow] = useState(false);
   const [cardName, setCardName] = useState("");
 
@@ -32,21 +33,28 @@ export const AddCardForm = ({ listKey, setNewCard }: Props) => {
   };
 
   return (
-    <div>
+    <div className={clsx(s, className)}>
       {isShow ? (
-        <div>
+        <div className={s.form}>
           <input
+            className={s.inputField}
             placeholder="カードのタイトルを入力..."
             value={cardName}
             onChange={(e) => setCardName(e.currentTarget.value)}
           />
-          <div>
-            <button onClick={addNewCard}>カードを追加</button>
-            <button onClick={cancel}>×</button>
+          <div className={s.actionButtons}>
+            <button className={s.confirm} onClick={addNewCard}>
+              カードを追加
+            </button>
+            <button className={s.cancel} onClick={cancel}>
+              ×
+            </button>
           </div>
         </div>
       ) : (
-        <button onClick={showForm}>+ カードを追加</button>
+        <button className={s.button} onClick={showForm}>
+          + カードを追加
+        </button>
       )}
     </div>
   );

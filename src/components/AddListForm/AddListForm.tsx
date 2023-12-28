@@ -34,19 +34,26 @@ export const AddListForm = ({ setNewList }: Props) => {
   return (
     <div>
       {isShow ? (
-        <div>
+        <div className={s.form}>
           <input
+            className={s.inputField}
             placeholder="リストのタイトルを入力..."
             value={listName}
             onChange={(e) => setListName(e.currentTarget.value)}
           />
-          <div>
-            <button onClick={addNewList}>リストを追加</button>
-            <button onClick={cancel}>×</button>
+          <div className={s.actionButtons}>
+            <button className={s.confirm} onClick={addNewList}>
+              リストを追加
+            </button>
+            <button className={s.cancel} onClick={cancel}>
+              ×
+            </button>
           </div>
         </div>
       ) : (
-        <button onClick={showForm}>+ リストを追加</button>
+        <button className={s.button} onClick={showForm}>
+          + リストを追加
+        </button>
       )}
     </div>
   );

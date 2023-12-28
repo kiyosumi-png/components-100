@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #101204;
+  padding: 8px;
+  height: fit-content;
+  width: 272px;
+  border-radius: 12px;
+}
+
+.listName {
+  padding: 8px 8px 0px;
+  color: #b6c2cf;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.cards {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.addCard {
+  padding: 8px 8px 0px;
+}

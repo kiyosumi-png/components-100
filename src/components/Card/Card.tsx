@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import s from "./styles.module.scss";
 
 type Props = {
@@ -6,5 +5,5 @@ type Props = {
 };
 
 export const Card = ({ name }: Props) => {
-  return <li>{name}</li>;
+  return <li className={s.card}>{name}</li>;
 };
