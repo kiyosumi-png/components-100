@@ -1,11 +1,17 @@
+.board {
+  display: flex;
+  gap: 10px;
+}
+
 .list {
+  overflow-x: scroll;
   display: flex;
   flex-direction: column;
   gap: 8px;
   background-color: #101204;
   padding: 8px;
   height: fit-content;
-  width: 272px;
+  min-width: 272px;
   border-radius: 12px;
 }
 

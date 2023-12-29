@@ -16,6 +16,9 @@ export const AddCardForm = ({ listKey, setNewCard, className }: Props) => {
   const showForm = () => {
     setIsShow(true);
   };
+  const cancel = () => {
+    setIsShow(false);
+  };
 
   const addNewCard = () => {
     if (!cardName) {
@@ -26,10 +29,6 @@ export const AddCardForm = ({ listKey, setNewCard, className }: Props) => {
     setNewCard(cardName, listKey);
 
     setCardName("");
-    setIsShow(false);
-  };
-
-  const cancel = () => {
     setIsShow(false);
   };
 

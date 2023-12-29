@@ -9,7 +9,7 @@ import { ReactSortable } from "react-sortablejs";
 import { v4 as uuidv4 } from "uuid";
 import s from "./page.module.scss";
 
-function Board() {
+const useBoard = () => {
   const [board, setBoard] = useState<TBoard>(boardData);
 
   const updateList = (key: string, newItems: TCard[]) => {
@@ -38,8 +38,19 @@ function Board() {
     }));
   };
 
+  return {
+    board,
+    updateList,
+    handleSetNewCard,
+    handleSetNewList,
+  };
+};
+
+const Board = () => {
+  const { board, updateList, handleSetNewCard, handleSetNewList } = useBoard();
+
   return (
-    <div style={{ display: "flex", gap: "10px" }}>
+    <div className={s.board}>
       {Object.entries(board).map(([listKey, item]) => (
         <div key={listKey} className={s.list}>
           <p className={s.listName}>{item.list.name}</p>
@@ -60,7 +71,7 @@ function Board() {
       <AddListForm setNewList={handleSetNewList} />
     </div>
   );
-}
+};
 
 function App() {
   return <Board />;
