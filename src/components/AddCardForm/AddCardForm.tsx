@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import s from "./styles.module.scss";
 import { useState } from "react";
+import { MdAdd } from "react-icons/md";
 
 type Props = {
   listKey: string;
@@ -53,7 +54,10 @@ export const AddCardForm = ({ listKey, setNewCard, className }: Props) => {
         </div>
       ) : (
         <button className={s.button} onClick={showForm}>
-          + カードを追加
+          <span className={s.icon}>
+            <MdAdd />
+          </span>
+          カードを追加
         </button>
       )}
     </div>

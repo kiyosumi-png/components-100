@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import s from "./styles.module.scss";
+import { MdClose } from "react-icons/md";
 
 import { useState } from "react";
 
@@ -46,7 +46,9 @@ export const AddListForm = ({ setNewList }: Props) => {
               リストを追加
             </button>
             <button className={s.cancel} onClick={cancel}>
-              ×
+              <span>
+                <MdClose />
+              </span>
             </button>
           </div>
         </div>

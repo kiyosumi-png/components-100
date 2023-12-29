@@ -1,3 +1,11 @@
+:root {
+  --color-text-main: #b6c2cf;
+}
+
+body {
+  background-color: rgba(205, 90, 145);
+}
+
 p {
   margin: 0px;
 }
@@ -8,8 +16,4 @@ h2 {
 
 input {
   padding: 0px;
-}
-
-body {
-  background-color: rgba(205, 90, 145);
 }

@@ -5,9 +5,13 @@
 }
 
 .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
   background-color: transparent;
   border: none;
-  color: #b6c2cf;
+  color: var(--color-text-main);
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -17,6 +21,10 @@
   &:hover {
     background-color: #a6c5e229;
   }
+}
+
+.icon {
+  line-height: 0;
 }
 
 .actionButtons {
@@ -38,7 +46,7 @@
 }
 
 .cancel {
-  color: #b6c2cf;
+  color: var(--color-text-main);
   border: none;
   padding: 8px;
   border-radius: 4px;
@@ -51,7 +59,7 @@
 }
 
 .inputField {
-  color: #b6c2cf;
+  color: var(--color-text-main);
   border: none;
   background-color: #22272b;
   border-radius: 8px;
